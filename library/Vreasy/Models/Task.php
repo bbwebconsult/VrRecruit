@@ -13,13 +13,19 @@ class Task extends Base
     protected $assigned_phone;
     protected $created_at;
     protected $updated_at;
+    protected $state;
 
+	const STATE_PENDING = 1;
+	const STATE_REFUSED = 2;
+	const STATE_ACCEPTED = 3;
+	const STATE_COMPLETED = 4;
+    
     public function __construct()
     {
         // Validation is done run by Valitron library
         $this->validates(
             'required',
-            ['deadline', 'assigned_name', 'assigned_phone']
+            ['deadline', 'assigned_name', 'assigned_phone', 'state']
         );
         $this->validates(
             'date',
@@ -27,7 +33,7 @@ class Task extends Base
         );
         $this->validates(
             'integer',
-            ['id']
+            ['id', 'states']
         );
     }
 
@@ -60,6 +66,30 @@ class Task extends Base
         return $task;
     }
 
+    /*
+     * Return the corresponding string (name) of each state
+     */
+    public function getStateString()
+    {
+    	switch($this->state)
+    	{
+    		case self::STATE_PENDING:
+    			return 'Pending';
+    		break;
+    		case self::STATE_COMPLETED:
+    			return 'Completed';
+    		break;
+    		case self::STATE_ACCEPTED:
+    			return 'Accepted';
+    		break;
+    		case self::STATE_REFUSED:
+    			return 'Refused';
+    		break;
+    		default:
+    			return 'Errr...';
+    		break;
+    	}
+    }
 
     public static function where($params, $opts = [])
     {
@@ -110,4 +140,14 @@ class Task extends Base
         }
         return $collection;
     }
+    
+    
+    public function attributes($options = [])
+    {
+    	$attributes = parent::attributes($options);
+    	$attributes['state_string'] = $this->getStateString();
+    	
+    	return $attributes;
+    }
+    
 }
