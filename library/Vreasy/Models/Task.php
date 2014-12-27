@@ -44,6 +44,8 @@ class Task extends Base
             $this->updated_at = gmdate(DATE_FORMAT);
             if ($this->isNew()) {
                 $this->created_at = $this->updated_at;
+                if($this->state === null)
+                    $this->state = self::STATE_PENDING;
                 static::insert('tasks', $this->attributesForDb());
                 $this->id = static::lastInsertId();
             } else {
@@ -64,31 +66,6 @@ class Task extends Base
             $task = array_pop($tasksFound);
         }
         return $task;
-    }
-
-    /*
-     * Return the corresponding string (name) of each state
-     */
-    public function getStateString()
-    {
-    	switch($this->state)
-    	{
-    		case self::STATE_PENDING:
-    			return 'Pending';
-    		break;
-    		case self::STATE_COMPLETED:
-    			return 'Completed';
-    		break;
-    		case self::STATE_ACCEPTED:
-    			return 'Accepted';
-    		break;
-    		case self::STATE_REFUSED:
-    			return 'Refused';
-    		break;
-    		default:
-    			return 'Errr...';
-    		break;
-    	}
     }
 
     public static function where($params, $opts = [])
@@ -140,14 +117,4 @@ class Task extends Base
         }
         return $collection;
     }
-    
-    
-    public function attributes($options = [])
-    {
-    	$attributes = parent::attributes($options);
-    	$attributes['state_string'] = $this->getStateString();
-    	
-    	return $attributes;
-    }
-    
 }
