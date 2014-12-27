@@ -15,10 +15,10 @@ class Task extends Base
     protected $updated_at;
     protected $state;
 
-	const STATE_PENDING = 1;
-	const STATE_REFUSED = 2;
-	const STATE_ACCEPTED = 3;
-	const STATE_COMPLETED = 4;
+    const STATE_PENDING = 1;
+    const STATE_REFUSED = 2;
+    const STATE_ACCEPTED = 3;
+    const STATE_COMPLETED = 4;
     
     public function __construct()
     {

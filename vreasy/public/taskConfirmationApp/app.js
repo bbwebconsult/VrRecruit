@@ -27,17 +27,17 @@ angular.module('taskConfirmationApp',  ['ui.router', 'ngResource'])
 .controller('TaskCtrl', function($scope, Task) {
     $scope.tasks = Task.query();
     $scope.getStateName = function(id)
-    					{
-    						switch(id)
-    						{
-    							case 1 : return "Pending";
-    							case 2 : return "Refused";
-    							case 3 : return "Accepted";
-    							case 4 : return "Completed";
-    							default : return "Err...";
-    						}
-    	
-    					};
+                        {
+                            switch(id)
+                            {
+                                case 1 : return "Pending";
+                                case 2 : return "Refused";
+                                case 3 : return "Accepted";
+                                case 4 : return "Completed";
+                                default : return "Err...";
+                            }
+        
+                        };
                           
                           
 });
