@@ -2,7 +2,7 @@
 
 use Vreasy\Models\TaskHistory;
 
-class Vreasy_TaskHistoryController extends Vreasy_Rest_Controller
+class Vreasy_TaskhistoryController extends Vreasy_Rest_Controller
 {
     protected $taskHistory;
 
