@@ -9,13 +9,10 @@ class InsertSomeTasks extends Ruckusing_Migration_Base
 {
     public function up()
     {
+        
+        $date = gmdate(DATE_FORMAT);
         foreach ([1,2,3] as $i) {
-            $t = Task::instanceWith([
-                'deadline' => (new \DateTime("+$i days"))->format(DATE_FORMAT),
-                'assigned_name' => 'John Doe',
-                'assigned_phone' => '+55 555-555-555',
-            ]);
-            $t->save();
+            $this->execute("INSERT INTO tasks (deadline, assigned_name, assigned_phone, created_at, updated_at) VALUES('".(new \DateTime("+$i days"))->format(DATE_FORMAT)."', 'John Doe', '+55 555-555-555', '$date', '$date');");
         }
     }//up()
 
