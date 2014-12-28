@@ -17,7 +17,7 @@
     <th></th>
   </tr>
 
-  <tr ng-repeat="task in tasks">
+  <tr ng-repeat="task in tasks" ng-class="{'info' : task.state == 1, 'danger' : task.state == 2, 'success' : task.state == 3}">
     <td>{{task.id}}</td>
     <td>{{task.deadline}}</td>
     <td>{{task.assigned_name}}</td>
@@ -40,7 +40,7 @@
     <th>Who</th>
   </tr>
 
-  <tr ng-repeat="log in currentLog">
+  <tr ng-repeat="log in currentLog" ng-class="{'info' : log.state == 1, 'danger' : log.state == 2, 'success' : log.state == 3}">
     <td>{{log.time}}</td>
     <td>{{getStateName(log.state)}}</td>
     <td>{{log.action_taker}}</td>
