@@ -15,11 +15,15 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "karma": "~0.11",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-growl-reporter": "~0.1.1",
+    "karma-ie-launcher": "^0.1.5",
     "karma-jasmine": "~0.1.0",
     "karma-ng-html2js-preprocessor": "~0.1.0",
-    "karma-growl-reporter": "~0.1.1",
+    "karma-ng-scenario": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.1",
-    "karma-ng-scenario": "~0.1.0"
+    "karma-qunit": "^0.1.4",
+    "qunitjs": "^1.16.0"
   },
   "dependencies": {
     "bower": "~1.2.8"

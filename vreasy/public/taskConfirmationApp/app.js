@@ -24,8 +24,21 @@ angular.module('taskConfirmationApp',  ['ui.router', 'ngResource'])
         }
     );
 })
-.controller('TaskCtrl', function($scope, Task) {
-    $scope.tasks = Task.query();
+.factory('TaskHistory', function($resource) {
+    return $resource('/taskhistory/:id?format=json',
+        {id:'@id'},
+        {
+        	'query':  {method:'GET', isArray:true},
+        }
+    );
+})
+.controller('TaskCtrl', function($scope, Task, TaskHistory) {
+	$scope.currentLog = [];
+	$scope.tasks = Task.query();
+	$scope.setCurrent = function(id)
+	{
+		$scope.currentLog = TaskHistory.query({'id':id});
+	};
     $scope.getStateName = function(id)
                         {
                             switch(id)

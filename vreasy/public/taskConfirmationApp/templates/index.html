@@ -6,7 +6,7 @@
 </ng-pluralize>
 </h1>
 
-<table>
+<table class="table">
   <tr>
     <th>Id</th>
     <th>Deadline</th>
@@ -24,9 +24,27 @@
     <td>{{task.assigned_phone}}</td>
     <td>{{getStateName(task.state)}}</td>
     <td>
-      <a href="" class="btn" disabled>
+      <a href="" ng-click="setCurrent(task.id)" class="btn">
         Show
       </a>
     </td>
   </tr>
 </table>
+
+<div ng-show="currentLog.length>0">
+<h2>History log for task {{currentLog[0].id_task}}</h2>
+<table  class="table">
+  <tr>
+    <th>Date</th>
+    <th>State</th>
+    <th>Who</th>
+  </tr>
+
+  <tr ng-repeat="log in currentLog">
+    <td>{{log.time}}</td>
+    <td>{{getStateName(log.state)}}</td>
+    <td>{{log.action_taker}}</td>
+  </tr>
+</table>
+
+</div>

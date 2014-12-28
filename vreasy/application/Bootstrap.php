@@ -41,7 +41,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $restRoute = new Vreasy_Rest_Route(
             Zend_Controller_Front::getInstance(),
             ['module' => 'vreasy'],
-            ['vreasy' => ['task','twilio']
+            ['vreasy' => ['task', 'taskhistory','twilio']
         ]);
         Zend_Controller_Front::getInstance()->getRouter()->addRoute(
             'vreasy',

@@ -54,7 +54,7 @@ class Vreasy_TwilioController extends Vreasy_Rest_Controller
             }
                     
             $task->updated_at = gmdate(DATE_FORMAT);
-            $task->save();
+            $task->save(['action_taker' => $task->assigned_name]);
             
             $this->view->response = ['error' => false, 'task' => $task];
         }
