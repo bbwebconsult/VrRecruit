@@ -31,9 +31,9 @@
   </tr>
 </table>
 
-<div ng-show="currentLog.length>0">
+<div ng-show="currentLog!=null">
 <h2>History log for task {{currentLog[0].id_task}}</h2>
-<table  class="table">
+<table ng-show="currentLog.length>0" class="table">
   <tr>
     <th>Date</th>
     <th>State</th>
@@ -46,5 +46,9 @@
     <td>{{log.action_taker}}</td>
   </tr>
 </table>
-
+<div ng-show="currentLog.length==0">
+    <p class="lead">
+        Sorry, no log for this task
+    </p>
+</div>
 </div>

@@ -33,11 +33,16 @@ angular.module('taskConfirmationApp',  ['ui.router', 'ngResource'])
     );
 })
 .controller('TaskCtrl', function($scope, Task, TaskHistory) {
-	$scope.currentLog = [];
+	$scope.currentLog = null;
 	$scope.tasks = Task.query();
 	$scope.setCurrent = function(id)
 	{
-		$scope.currentLog = TaskHistory.query({'id':id});
+		//hide current table 
+		$scope.currentLog = null;
+		TaskHistory.query({'id':id}, function(response){
+			//assign new table with response only and when the response is received
+			$scope.currentLog = response;
+		});
 	};
     $scope.getStateName = function(id)
                         {
