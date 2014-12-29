@@ -33,7 +33,7 @@ class Task extends Base
         );
         $this->validates(
             'integer',
-            ['id', 'states']
+            ['id', 'state']
         );
     }
 
