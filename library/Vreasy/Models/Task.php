@@ -13,7 +13,7 @@ class Task extends Base
     protected $assigned_phone;
     protected $created_at;
     protected $updated_at;
-    protected $state;
+    protected $state = self::STATE_PENDING;
 
     const STATE_PENDING = 1;
     const STATE_REFUSED = 2;
@@ -44,8 +44,6 @@ class Task extends Base
             $this->updated_at = gmdate(DATE_FORMAT);
             if ($this->isNew()) {
                 $this->created_at = $this->updated_at;
-                if($this->state === null)
-                    $this->state = self::STATE_PENDING;
                 static::insert('tasks', $this->attributesForDb());
                 $this->id = static::lastInsertId();
             } else {
