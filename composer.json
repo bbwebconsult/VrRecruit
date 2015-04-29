@@ -8,7 +8,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:brutuscat/valitron.git"
+            "url": "git@github.com:vreasy/valitron.git"
         },
         {
             "type": "vcs",
@@ -25,25 +25,29 @@
         {
             "type": "vcs",
             "url": "git@github.com:brutuscat/Codeception.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:Vreasy/ruckusing-migrations.git"
         }
     ],
     "require": {
-        "zendframework/zendframework1": "1.12.3",
-        "ruckusing/ruckusing-migrations": "dev-master#6c7a26ccd96a4ac980f3fc47c6645458ed918406",
-        "vlucas/valitron": "dev-master#8c34a03",
-        "yohang/finite": "1.0.*@dev",
+        "composer/composer": "@alpha",
+        "zendframework/zendframework1": "~1.12.0",
+        "ruckusing/ruckusing-migrations": "dev-master#5bf09712be6093813c681e95cde96fdeb0f40bfa",
+        "vlucas/valitron": "dev-master#3b8a8813d0017d87051f9e582185008a73873387",
+        "yohang/finite": "1.0.*",
         "phpactiveresource/phpactiveresource": "*",
         "guzzle/guzzle": "3.7.x",
         "robclancy/presenter": "1.0.x",
         "sabre/vobject" : "~3.0.0",
-        "eluceo/ical": "dev-master#9b56d5b44c068f3c8fbd7937a412909b723018a3",
-        "robclancy/presenter": "1.0.x",
+        "eluceo/ical": "0.3.0",
         "jacobkiers/oauth": "dev-master#1249c0098776cfa688c7925740c617ceed693105",
         "joshuaestes/feature-toggle": "dev-master#c5bfb654e2e9496a363628079de5a067be62c5e6"
     },
     "require-dev": {
-        "codeception/codeception": "dev-master#1b3ccc901a968c8220ef4708869cac6575298ef0",
-        "magento/community-edition": "dev-master#b3d69492524f482c76ea512888ef2fbc1412a3c0"
+        "codeception/codeception": "2.0.x-dev",
+        "magento/community-edition": "dev-master#67519d4eacb2dc0824a2824cdb1cacb3afef20ed"
     },
     "autoload": {
         "psr-0": { "": ["library/"] }
